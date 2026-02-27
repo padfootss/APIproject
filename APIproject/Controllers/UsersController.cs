@@ -15,18 +15,18 @@ namespace APIproject.Controllers
             _context = context;
         }
 
-        [HttpPost]
+        [HttpPost] // veri göndermek için istek
         public IActionResult CreateUser(User user)
         {
-            _context.Users.Add(user);
-            _context.SaveChanges();
-            return Ok(user);
+            _context.Users.Add(user); //user ekledi        
+            _context.SaveChanges(); //dbye kaydetti
+            return Ok(user); // 200 OK döndürdü
         }
 
-        [HttpGet]
+        [HttpGet] // veri almak için istek
         public IActionResult GetUsers()
         {
-            return Ok(_context.Users.ToList());
+            return Ok(_context.Users.ToList()); // userları alıp listeliyor ve 200 döndürüyor
         }
     }
 }
